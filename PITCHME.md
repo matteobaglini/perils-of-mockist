@@ -190,7 +190,7 @@ public void UnknownAccount()
 ```
 
 ---
-## Implementation (KISS)
+## Implementation
 ```csharp
 public void Check(String accountId, String gateId)
 {
@@ -235,7 +235,8 @@ public class FlatFileAccountRepositoryTests
         "64, mary, 55-B|31-H|67-A");
     var repo = new FlatFileAccountRepository(fileName);
 
-    Assert.Throws<UnknownAccountException>(() => repo.Load("NOT-23"));
+    Assert.Throws<UnknownAccountException>(
+      () => repo.Load("NOT-23"));
   }
 
   [Fact]
@@ -251,8 +252,8 @@ public class FlatFileAccountRepositoryTests
 }
 ```
 @[3-14](account found)
-@[16-25](account found)
-@[27-34](account found)
+@[16-26](account found)
+@[28-35](account found)
 
 ---
 ## Display integration tests
