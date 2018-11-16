@@ -19,6 +19,7 @@ namespace AccessControl.App
 
         public void ShowUnauthorizedAccess(String name)
         {
+            writer.WriteLine("Access denied {0}!", name);
         }
 
         public void ShowUnknownAccount()

@@ -10,7 +10,7 @@ namespace AccessControl.Tests
        /*
         * TEST LIST:
         * X welcome message
-        * - unauth message
+        * X unauth message
         * - unknown message
         */
 
@@ -23,6 +23,17 @@ namespace AccessControl.Tests
             display.ShowWelcomeMessage("john");
 
             Assert.Equal("Welcome john!" + Environment.NewLine, writer.ToString());
+        }
+
+        [Fact]
+        public void UnauthorizedMessage()
+        {
+            var writer = new StringWriter();
+            var display = new ConsoleDisplay(writer);
+
+            display.ShowUnauthorizedAccess("john");
+
+            Assert.Equal("Access denied john!" + Environment.NewLine, writer.ToString());
         }
     }
 }
