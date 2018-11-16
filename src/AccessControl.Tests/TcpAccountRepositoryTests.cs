@@ -1,6 +1,5 @@
 ﻿using AccessControl.App;
 using System;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -10,21 +9,16 @@ using Xunit;
 
 namespace AccessControl.Tests
 {
-    public class TcpAccountRepositoryTests
+    public class TcpAccountRepositoryTests : AccountRepositoryContractTests
     {
-        [Fact]
-        public void Found()
+        protected override IAccountRepository CreateWith(String id, String name)
         {
             var (address, port) = PrepareTcpServer(
-                "23, john, 23-B|47-H",
+                $"{id}, {name}, 23-B|47-H",
                 "64, mary, 55-B|31-H|67-A"
             );
 
-            var repo = new TcpAccountRepository(address, port);
-
-            var account = repo.Load("23");
-
-            Assert.Equal("john", account.Name);
+            return new TcpAccountRepository(address, port);
         }
 
         [Fact]

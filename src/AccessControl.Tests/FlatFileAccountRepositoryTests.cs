@@ -5,21 +5,16 @@ using Xunit;
 
 namespace AccessControl.Tests
 {
-    public class FlatFileAccountRepositoryTests
+    public class FlatFileAccountRepositoryTests : AccountRepositoryContractTests
     {
-        [Fact]
-        public void Found()
+        protected override IAccountRepository CreateWith(String id, String name)
         {
             var fileName = PrepareFileWith(
-                "23, john, 23-B|47-H",
+                $"{id}, {name}, 23-B|47-H",
                 "64, mary, 55-B|31-H|67-A"
             );
 
-            var repo = new FlatFileAccountRepository(fileName);
-
-            var account = repo.Load("23");
-            
-            Assert.Equal("john", account.Name);
+            return new FlatFileAccountRepository(fileName);
         }
 
         [Fact]
