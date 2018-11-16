@@ -94,10 +94,11 @@
 ### from the consumer point of view
 
 ---
-## Impose an outside-in approch
+## Require an outside-in approch
 
 ---
-## Impose an additional testing lib
+## Benefit from 
+## the use of mock library
 
 ---
 ## Popularized by GOOS book
