@@ -289,7 +289,7 @@ static void Main(string[] args)
 ## into production
 
 ---
-## times to celebrate
+## we celebrate
 ## another victory
 
 ---
@@ -304,14 +304,12 @@ static void Main(string[] args)
 ## it happens
 
 ---
-## always
+## it always happens!
 
 ---
 ## new requirement
 
----
-### we need to integrate
-### with an awesome 
+### integrate with an awesome 
 ### backend exposed via TCP
 
 ---
