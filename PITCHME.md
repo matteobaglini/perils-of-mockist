@@ -2,7 +2,7 @@
 # of @color[GoldenRod](mockist)
 
 ---
-# Who am I? What I do?
+# Who am I?
 - Hi, I'm Matteo!
 - Came from Italy -> Tuscany -> Leghorn
 - Declared @color[GoldenRod](developer) ;-)
@@ -11,11 +11,11 @@
 
 ---
 # Co-found
-<img src="assets/doubleloop2.png">
+<img src="assets/doubleloop2-min.png">
 
 ---
 # Collaborate with
-<img src="assets/avanscoperta2.png">
+<img src="assets/avanscoperta2-min.png">
 
 ---
 ## How many of you use mocks and mock library?
