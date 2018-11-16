@@ -660,7 +660,7 @@ public void AccountAllowed()
 ## under test
 
 ---
-## Extract ContractTests
+## Extract Contract Tests
 
 ---
 ## Build real production
@@ -668,7 +668,8 @@ public void AccountAllowed()
 ## with integration tests
 
 ---
-## Repeat :-)
+## Repeat...
+## until done or exausted :-)
 
 ---
 # @color[GoldenRod](Thanks)
