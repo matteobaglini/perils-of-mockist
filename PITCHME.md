@@ -94,17 +94,18 @@
 ### from the consumer point of view
 
 ---
-## Require an outside-in approch
+## Require an 
+## outside-in approch
 
 ---
-## Benefit from 
-## the use of mock library
+## Benefit from the use of 
+## a mocking library
 
 ---
-## Popularized by GOOS book
+## Popularized by @color[GoldenRod](GOOS) book
 
 ---
-# Example
+# Today Example
 
 ### Access Control System
 
