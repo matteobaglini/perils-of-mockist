@@ -18,16 +18,13 @@
 <img height="400" src="assets/avanscoperta2-min.png">
 
 ---
-## How many of you use mocks and mock library?
+# Quick Survery
 
 ---
-## How many of you have a satisfing suite of system tests?
+# @color[GoldenRod](Disclaimer)
 
 ---
-# Disclaimer
-
----
-## the talk isn't yet another classic vs mockist war
+## not about classicist vs mockist war
 
 ---
 ## ... and  does not want to demonize mock objects
