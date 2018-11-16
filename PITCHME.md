@@ -498,8 +498,7 @@ public abstract class AccountRepositoryContractTests
 ## for FlatFile repo
 
 ---
-## Align FlatFile to Tcp
-## Repository behaviour
+## Change FlatFile behaviour
 
 ---
 ## All tests @color[green](are green)
@@ -509,7 +508,7 @@ public abstract class AccountRepositoryContractTests
 <img src="assets/run-null-reference.PNG">
 
 ---
-## Fix no feedback on Null
+## @color[GoldenRod](2.) Fix no feedback on Null reference
 
 ---
 # First Strategy
