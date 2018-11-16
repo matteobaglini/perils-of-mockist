@@ -18,13 +18,14 @@
 <img height="400" src="assets/avanscoperta2-min.png">
 
 ---
-# Quick Survery
+# How many of you ... ? 
 
 ---
 # @color[GoldenRod](Disclaimer)
 
 ---
-## @color[GoldenRod](1.) not about classicist vs mockist
+## @color[GoldenRod](1.) not about 
+## classicist vs mockist
 
 ---
 ## @color[GoldenRod](2.) does not want to demonize mock objects
