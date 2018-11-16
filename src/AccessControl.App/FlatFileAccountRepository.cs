@@ -18,6 +18,8 @@ namespace AccessControl.App
             var all = File.ReadAllLines(fileName);
             var accounts = all.Select(Parse).ToList();
             var accountFound = accounts.FirstOrDefault(x => x.Id == id);
+            if (accountFound == null)
+                throw new UnknownAccountException();
 
             return accountFound;
         }

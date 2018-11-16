@@ -10,7 +10,7 @@ namespace AccessControl.Tests
         /*
          * TEST LIST:
          * X account found
-         * - account not found
+         * X account not found
          * - missing file
          */
 
@@ -27,6 +27,19 @@ namespace AccessControl.Tests
             var account = repo.Load("23");
             
             Assert.Equal("john", account.Name);
+        }
+
+        [Fact]
+        public void NotFound()
+        {
+            var fileName = PrepareFileWith(
+                "23, john, 23-B|47-H",
+                "64, mary, 55-B|31-H|67-A"
+            );
+
+            var repo = new FlatFileAccountRepository(fileName);
+
+            Assert.Throws<UnknownAccountException>(() => repo.Load("NOT-23"));
         }
 
         private static String PrepareFileWith(params String[] lines)
