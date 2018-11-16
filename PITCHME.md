@@ -525,8 +525,12 @@ public abstract class AccountRepositoryContractTests
 
 ---
 ## GOOS suggest to
-## Add System Tests
+## use System Tests
 ## to fix the issue
+
+---
+## System Tests cons:
+### slow, fragile, big, don't scale
 
 ---
 ## Integrated tests
