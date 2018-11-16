@@ -239,8 +239,7 @@ public class FlatFileAccountRepositoryTests
       () => repo.Load("NOT-23"));
   }
 
-  // ... other tests
-  // ... private utils
+  // ... other tests and private utils
 }
 ```
 @[3-14](account found)
@@ -263,7 +262,7 @@ public class ConsoleDisplayTests
         Environment.NewLine, writer.ToString());
   }
 
-  // ... other tests
+  // ...more tests
 }
 ```
 
@@ -330,8 +329,7 @@ public class TcpAccountRepositoryTests
     Assert.Equal("john", account.Name);
   }
 
-  // ...more tests
-  // ...private utils
+  // ...more tests and private utils
 }
 ```
 
@@ -368,7 +366,7 @@ static void Main(string[] args)
 # @color[IndianRed](WTF!?)
 
 ---
-## The infamous Null
+## The infamous Null Reference
 <img src="assets/run-null-reference.PNG">
 
 ---
