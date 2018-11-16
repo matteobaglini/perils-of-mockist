@@ -645,7 +645,7 @@ public void AccountAllowed()
 
 ---
 # Recap
-###(my current TDD workflow)
+### (aka my current TDD workflow)
 
 ---
 ## Start With Acceptance Test
