@@ -376,19 +376,19 @@ static void Main(string[] args)
 ---
 ## tests with mocks
 ## do not offer feedback 
-## on the whole, at all
+## on the whole
 
 --- 
 ## tests with mocks aren't
-## a regression suite
+## a regression test suite
 
 ---
 ## Issues
-1. LSP violation between repos
-2. no feedback on Null
+1. Liskov principle violation between repos
+2. no feedback on Null reference
 
 ---
-## Fix LSP violation
+## @color[GoldenRod](1.) Fix LSP violation
 
 ---
 ## Contract Tests
