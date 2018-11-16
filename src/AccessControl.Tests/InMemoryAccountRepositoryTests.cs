@@ -7,12 +7,18 @@ namespace AccessControl.Tests
     {
         protected override IAccountRepository CreateWith(String id, String name)
         {
-            throw new NotImplementedException();
+            return new InMemoryAccountRepository(
+                new Account(id, name, new String[0]),
+                new Account("64", "mary", new String[0])
+                );
         }
 
         protected override IAccountRepository CreateWithout(String id, String name)
         {
-            throw new NotImplementedException();
+            return new InMemoryAccountRepository(
+                new Account($"NOT-{id}", $"NOT-{name}", new String[0]),
+                new Account("64", "mary", new String[0])
+                );
         }
     }
 }
