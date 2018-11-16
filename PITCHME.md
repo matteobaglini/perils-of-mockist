@@ -31,14 +31,18 @@
 ## @color[GoldenRod](2.) does not want to demonize mock objects
 
 ---
-# Relax, have fun :-)
+## My goal is to pinpoint 
+## to a problem I see around 
+
+--- 
+## Show my opinionated solution
 
 ---
-## My goal is to pinpoint to a problem I see around and how I handle it
-
----
-## It's an opinionated solution
 ## Some of you might disagree
+## No problem, It's ok! :-)
+
+---
+# Relax, have @color[GoldenRod](fun)
 
 ---
 # Sync Testing
