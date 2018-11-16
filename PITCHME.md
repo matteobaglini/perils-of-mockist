@@ -632,13 +632,15 @@ public void AccountAllowed()
 <img src="assets/in-the-end-usecase-is-red.PNG">
 
 ---
-## Make test green
+## Fix code
+## make test @color[green](green)
 
 ---
-## Deploy into production
+## The app goes
+## into production
 
 ---
-## Now, celebrate
+## @color[GoldenRod](Now), celebrate
 ## another victory
 
 ---
