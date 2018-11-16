@@ -564,23 +564,23 @@ not suitable for production
 <img src="assets/learning-transport3.png">
 
 ---
-## Implements with Contract Tests
+## Use Contract Tests
 ```csharp
 public class InMemoryAccountRepositoryTests : AccountRepositoryContractTests
 {
-    protected override IAccountRepository CreateWith(String id, String name)
-    {
-        return new InMemoryAccountRepository(
-            new Account(id, name, new String[0]),
-            new Account("64", "mary", new String[0]));
-    }
+  protected override IAccountRepository CreateWith(String id, String name)
+  {
+    return new InMemoryAccountRepository(
+        new Account(id, name, new String[0]),
+        new Account("64", "mary", new String[0]));
+  }
 
-    protected override IAccountRepository CreateWithout(String id, String name)
-    {
-        return new InMemoryAccountRepository(
-            new Account($"NOT-{id}", $"NOT-{name}", new String[0]),
-            new Account("64", "mary", new String[0]));
-    }
+  protected override IAccountRepository CreateWithout(String id, String name)
+  {
+    return new InMemoryAccountRepository(
+        new Account($"NOT-{id}", $"NOT-{name}", new String[0]),
+        new Account("64", "mary", new String[0]));
+  }
 }
 ```
 
