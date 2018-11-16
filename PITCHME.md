@@ -268,7 +268,7 @@ public class ConsoleDisplayTests
 ```
 
 ---
-## @color[green](Green Bar)
+## @color[green](All tests are green)
 
 ---
 ## Program main
