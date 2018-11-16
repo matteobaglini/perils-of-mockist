@@ -15,18 +15,13 @@ namespace AccessControl.App
 
         public void Check(String accountId, String gateId)
         {
-            try
-            {
-                var account = accountRepository.Load(accountId);
-                if (account.CanAccess(gateId))
-                    display.ShowWelcomeMessage(account.Name);
-                else
-                    display.ShowUnauthorizedAccess(account.Name);
-            }
-            catch (UnknownAccountException)
-            {
+            var account = accountRepository.Load(accountId);
+            if (account == null)
                 display.ShowUnknownAccount();
-            }
+            else if (account.CanAccess(gateId))
+                display.ShowWelcomeMessage(account.Name);
+            else
+                display.ShowUnauthorizedAccess(account.Name);
         }
     }
 }
