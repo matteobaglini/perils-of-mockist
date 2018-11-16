@@ -111,9 +111,9 @@
 
 ---
 ## Use cases:
-- can access
-- cannot acces
-    - not valid badge
+- an employee can access
+- an employee cannot acces
+    - unauthorized badge
     - unknown badge
 
 ---
@@ -122,19 +122,19 @@
 [Fact]
 public void AccountAllowed()
 {
-    var accountRepository = new Mock<IAccountRepository>();
-    var display = new Mock<IDisplay>();
-    var accessControl = new AccessControlService(
-                                accountRepository.Object,
-                                display.Object);
+  var accountRepository = new Mock<IAccountRepository>();
+  var display = new Mock<IDisplay>();
+  var accessControl = new AccessControlService(
+                              accountRepository.Object,
+                              display.Object);
 
-    accountRepository
-        .Setup(x => x.Load("23"))
-        .Returns(new Account("23", "john", new[] { "42-B" }));
+  accountRepository
+      .Setup(x => x.Load("23"))
+      .Returns(new Account("23", "john", new[] { "42-B" }));
 
-    accessControl.Check("23", "42-B");
+  accessControl.Check("23", "42-B");
 
-    display.Verify(x => x.ShowWelcomeMessage("john"));
+  display.Verify(x => x.ShowWelcomeMessage("john"));
 }
 ```
 
