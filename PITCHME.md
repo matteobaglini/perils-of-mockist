@@ -173,39 +173,39 @@ public void AccountDenied()
 [Fact]
 public void UnknownAccount()
 {
-    var accountRepository = new Mock<IAccountRepository>();
-    var display = new Mock<IDisplay>();
-    var accessControl = new AccessControlService(
-                                accountRepository.Object,
-                                display.Object);
+  var accountRepository = new Mock<IAccountRepository>();
+  var display = new Mock<IDisplay>();
+  var accessControl = new AccessControlService(
+                              accountRepository.Object,
+                              display.Object);
 
-    accountRepository
-        .Setup(x => x.Load(It.IsAny<String>()))
-        .Throws<UnknownAccountException>();
+  accountRepository
+    .Setup(x => x.Load(It.IsAny<String>()))
+    .Throws<UnknownAccountException>();
 
-    accessControl.Check("DOES-NOT-EXIST", "42-B");
+  accessControl.Check("DOES-NOT-EXIST", "42-B");
 
-    display.Verify(x => x.ShowUnknownAccount());
+  display.Verify(x => x.ShowUnknownAccount());
 }
 ```
 
 ---
-## Implementation
+## Implementation (KISS)
 ```csharp
 public void Check(String accountId, String gateId)
 {
-    try
-    {
-        var account = accountRepository.Load(accountId);
-        if (account.CanAccess(gateId))
-            display.ShowWelcomeMessage(account.Name);
-        else
-            display.ShowUnauthorizedAccess(account.Name);
-    }
-    catch (UnknownAccountException)
-    {
-        display.ShowUnknownAccount();
-    }
+  try
+  {
+    var account = accountRepository.Load(accountId);
+    if (account.CanAccess(gateId))
+      display.ShowWelcomeMessage(account.Name);
+    else
+      display.ShowUnauthorizedAccess(account.Name);
+  }
+  catch (UnknownAccountException)
+  {
+    display.ShowUnknownAccount();
+  }
 }
 ```
 
@@ -214,44 +214,45 @@ public void Check(String accountId, String gateId)
 ```csharp
 public class FlatFileAccountRepositoryTests
 {
-    [Fact]
-    public void Found()
-    {
-        var fileName = PrepareFileWith(
-            "23, john, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
-        var repo = new FlatFileAccountRepository(fileName);
+  [Fact]
+  public void Found()
+  {
+    var fileName = PrepareFileWith(
+        "23, john, 23-B|47-H",
+        "64, mary, 55-B|31-H|67-A");
+    var repo = new FlatFileAccountRepository(fileName);
 
-        var account = repo.Load("23");
-        
-        Assert.Equal("john", account.Name);
-    }
+    var account = repo.Load("23");
+    
+    Assert.Equal("john", account.Name);
+  }
 
-    [Fact]
-    public void NotFound()
-    {
-        var fileName = PrepareFileWith(
-            "23, john, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
-        var repo = new FlatFileAccountRepository(fileName);
+  [Fact]
+  public void NotFound()
+  {
+    var fileName = PrepareFileWith(
+        "23, john, 23-B|47-H",
+        "64, mary, 55-B|31-H|67-A");
+    var repo = new FlatFileAccountRepository(fileName);
 
-        Assert.Throws<UnknownAccountException>(() => repo.Load("NOT-23"));
-    }
+    Assert.Throws<UnknownAccountException>(() => repo.Load("NOT-23"));
+  }
 
-    [Fact]
-    public void MissingFile()
-    {
-        var fileName = RandomName();
-        var repo = new FlatFileAccountRepository(fileName);
+  [Fact]
+  public void MissingFile()
+  {
+    var fileName = RandomName();
+    var repo = new FlatFileAccountRepository(fileName);
 
-        Assert.Null(repo.Load("23"));
-    }
+    Assert.Null(repo.Load("23"));
+  }
 
-    // ...private utils
+  // ...private utils
 }
 ```
+@[3-14](account found)
+@[16-25](account found)
+@[27-34](account found)
 
 ---
 ## Display integration tests
