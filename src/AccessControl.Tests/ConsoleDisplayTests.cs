@@ -11,7 +11,7 @@ namespace AccessControl.Tests
         * TEST LIST:
         * X welcome message
         * X unauth message
-        * - unknown message
+        * X unknown message
         */
 
         [Fact]
@@ -34,6 +34,17 @@ namespace AccessControl.Tests
             display.ShowUnauthorizedAccess("john");
 
             Assert.Equal("Access denied john!" + Environment.NewLine, writer.ToString());
+        }
+
+        [Fact]
+        public void UnknownMessage()
+        {
+            var writer = new StringWriter();
+            var display = new ConsoleDisplay(writer);
+
+            display.ShowUnknownAccount();
+
+            Assert.Equal("Sorry, we don't know you." + Environment.NewLine, writer.ToString());
         }
     }
 }

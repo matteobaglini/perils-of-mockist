@@ -24,6 +24,7 @@ namespace AccessControl.App
 
         public void ShowUnknownAccount()
         {
+            writer.WriteLine("Sorry, we don't know you.");
         }
     }
 }
