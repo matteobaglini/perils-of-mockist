@@ -35,7 +35,8 @@
 ## to a problem I see around 
 
 --- 
-## Show my opinionated solution
+## Show my 
+## opinionated solution
 
 ---
 ## Some of you might disagree
@@ -45,7 +46,7 @@
 # Relax, have @color[GoldenRod](fun)
 
 ---
-# Sync Testing
+# Sync @color[IndianRed](Testing)
 # Vocabulary
 
 ---
@@ -69,15 +70,16 @@
 <img src="assets/ports-and-adapters-system-testing.png">
 
 ---
-# Sync TDD
+# Sync @color[IndianRed](TDD)
 # Vocabulary
 
 ---
-## Test-Driven
-## Development
+## Classicist TDD
 
 ---
-## Mock in a classic view
+## In this context a Mock
+## is a replace for 
+## hard to test resource
 
 ---
 ## Popularized by XP Explained and TDD by Example books
