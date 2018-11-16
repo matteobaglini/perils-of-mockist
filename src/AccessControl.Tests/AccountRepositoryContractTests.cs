@@ -17,5 +17,15 @@ namespace AccessControl.Tests
 
             Assert.Equal("john", account.Name);
         }
+
+        protected abstract IAccountRepository CreateWithout(String id, String name);
+
+        [Fact]
+        public void NotFound()
+        {
+            var repo = CreateWithout("23", "john");
+
+            Assert.Null(repo.Load("23"));
+        }
     }
 }

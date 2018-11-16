@@ -21,17 +21,14 @@ namespace AccessControl.Tests
             return new TcpAccountRepository(address, port);
         }
 
-        [Fact]
-        public void NotFound()
+        protected override IAccountRepository CreateWithout(String id, String name)
         {
             var (address, port) = PrepareTcpServer(
-                "23, john, 23-B|47-H",
+                $"NOT-{id}, NOT-{name}, 23-B|47-H",
                 "64, mary, 55-B|31-H|67-A"
             );
 
-            var repo = new TcpAccountRepository(address, port);
-
-            Assert.Null(repo.Load("NOT-23"));
+            return new TcpAccountRepository(address, port);
         }
 
         private static (String, Int32) PrepareTcpServer(params String[] lines)
@@ -47,13 +44,11 @@ namespace AccessControl.Tests
                 using (var stream = client.GetStream())
                 {
                     var dataIn = new Byte[1024];
-
                     var bytes = stream.Read(dataIn, 0, dataIn.Length);
                     var id = Encoding.ASCII.GetString(dataIn, 0, bytes);
                     var line = lines.FirstOrDefault(x => x.StartsWith(id));
                     var dataOut = Encoding.ASCII.GetBytes(line ?? String.Empty);
                     stream.Write(dataOut, 0, dataOut.Length);
-
                     client.Close();
                 }
                 server.Stop();
