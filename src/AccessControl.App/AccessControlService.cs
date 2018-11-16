@@ -15,6 +15,8 @@ namespace AccessControl.App
 
         public void Check(String accountId, String gateId)
         {
+            var account = accountRepository.Load(accountId);
+            display.ShowWelcomeMessage(account.Name);
         }
     }
 }

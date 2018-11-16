@@ -8,7 +8,7 @@ namespace AccessControl.Tests
     {
         /*
          * TEST LIST:
-         * - account allowed
+         * X account allowed
          * - account denied
          * - unknown account
          */
