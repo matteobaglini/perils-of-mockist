@@ -539,11 +539,11 @@ public abstract class AccountRepositoryContractTests
 ---
 ## True Story
 
-## Only Partial
-## Or No System Tests
+### Only Partial Or
+### No System Tests at all
 
 ---
-# Second Strategy
+# @color[GoldenRod](Second) Strategy
 
 ---
 ## Test Doubles
@@ -555,13 +555,13 @@ public abstract class AccountRepositoryContractTests
 
 Fake objects actually have working implementations,
 but usually take some shortcut which makes them 
-not suitable for production.
+not suitable for production
 
 ---
 ## Real World Example
-<img src="assets/learning-transport1.jpg">
-<img src="assets/learning-transport2.jpg">
-<img src="assets/learning-transport3.jpg">
+<img src="assets/learning-transport1.png">
+<img src="assets/learning-transport2.png">
+<img src="assets/learning-transport3.png">
 
 ---
 ## Implements with Contract Tests
