@@ -494,8 +494,8 @@ public abstract class AccountRepositoryContractTests
 ```
 
 ---
-## Now one is red
-<img src="MISSING">
+## Now "NotFound" @color[red](is red)
+## for FlatFile repo
 
 ---
 ## Align FlatFile to Tcp
