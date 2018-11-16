@@ -11,7 +11,7 @@ namespace AccessControl.Tests
          * TEST LIST:
          * X account allowed
          * X account denied
-         * - unknown account
+         * X unknown account
          */
 
         [Fact]
