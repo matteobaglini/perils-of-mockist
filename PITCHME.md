@@ -520,8 +520,7 @@ public abstract class AccountRepositoryContractTests
 ## like 90% of devs
 
 ---
-### Outside-in means
-### Double TDD cycle
+## Double TDD cycle
 <img src="assets/double-tdd.jpg">
 
 ---
