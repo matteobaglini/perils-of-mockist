@@ -398,94 +398,98 @@ static void Main(string[] args)
 ```csharp
 public class FlatFileAccountRepositoryTests
 {
-    private IAccountRepository CreateWith(String id, String name)
-    {
-        var fileName = PrepareFileWith(
-            $"{id}, {name}, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
-    
-        return new FlatFileAccountRepository(fileName);
-    }
-    
-    [Fact]
-    public void Found()
-    {
-        var repo = CreateWith("23", "john");
-    
-        var account = repo.Load("23");
-    
-        Assert.Equal("john", account.Name);
-    }
+  private IAccountRepository CreateWith(String id, String name)
+  {
+    var fileName = PrepareFileWith(
+        $"{id}, {name}, 23-B|47-H",
+        "64, mary, 55-B|31-H|67-A");
+  
+    return new FlatFileAccountRepository(fileName);
+  }
+  
+  [Fact]
+  public void Found()
+  {
+    var repo = CreateWith("23", "john");
+  
+    var account = repo.Load("23");
+  
+    Assert.Equal("john", account.Name);
+  }
 
-    //...more tests
+  //...more tests
 }
 ```
+@[3-10](extract factory method)
+@[15](call in the arrange step)
 
 ---
 ## Extract Arrange (Tcp)
 ```csharp
 public class TcpAccountRepositoryTests
 {
-    private IAccountRepository CreateWith(String id, String name)
-    {
-        var (address, port) = PrepareTcpServer(
-            $"{id}, {name}, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
+  private IAccountRepository CreateWith(String id, String name)
+  {
+    var (address, port) = PrepareTcpServer(
+        $"{id}, {name}, 23-B|47-H",
+        "64, mary, 55-B|31-H|67-A");
 
-        return new TcpAccountRepository(address, port);
-    }
+    return new TcpAccountRepository(address, port);
+  }
 
-    [Fact]
-    public void Found()
-    {
-        var repo = CreateWith("23", "john");
-    
-        var account = repo.Load("23");
-    
-        Assert.Equal("john", account.Name);
-    }
+  [Fact]
+  public void Found()
+  {
+    var repo = CreateWith("23", "john");
 
-    //...more tests
+    var account = repo.Load("23");
+
+    Assert.Equal("john", account.Name);
+  }
+
+  //...more tests
 }
 ```
+@[3-10](extract factory method)
+@[15](call in the arrange step)
 
 ---
 ## Push Members Up
 ```csharp
 public abstract class AccountRepositoryContractTests
 {
-    protected abstract IAccountRepository CreateWith(String id, String name);
+  protected abstract IAccountRepository CreateWith(String id, String name);
 
-    [Fact]
-    public void Found()
-    {
-        var repo = CreateWith("23", "john");
+  [Fact]
+  public void Found()
+  {
+    var repo = CreateWith("23", "john");
 
-        var account = repo.Load("23");
+    var account = repo.Load("23");
 
-        Assert.Equal("john", account.Name);
-    }
+    Assert.Equal("john", account.Name);
+  }
 }
 ```
+@[3](mark factory method as abstract)
+@[5-13](full test)
 
 ---
 ## Same as before
 ```csharp
 public abstract class AccountRepositoryContractTests
 {
-    // ...more tests
+  // ...more tests
 
-    protected abstract IAccountRepository CreateWithout(String id, String name);
+  protected abstract IAccountRepository CreateWithout(String id, String name);
 
-    [Fact]
-    public void NotFound()
-    {
-        var repo = CreateWithout("23", "john");
+  [Fact]
+  public void NotFound()
+  {
+    var repo = CreateWithout("23", "john");
 
-        Assert.Null(repo.Load("23"));
-    }
+    Assert.Null(repo.Load("23"));
+  }
 }
 ```
 
