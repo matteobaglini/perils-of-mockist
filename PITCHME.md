@@ -268,21 +268,19 @@ public class ConsoleDisplayTests
 ```
 
 ---
-## @color[green](All tests are green)
+## All tests @color[green](are green)
 
 ---
 ## Program main
 ```csharp
 static void Main(string[] args)
 {
-    var fileName = "accounts.txt";
-    Touch(fileName);
+  var fileName = "accounts.txt";
+  var repository = new FlatFileAccountRepository(fileName);
+  var display = new ConsoleDisplay(Console.Out);
+  var service = new AccessControlService(repository, display);
 
-    var repository = new FlatFileAccountRepository(fileName);
-    var display = new ConsoleDisplay(Console.Out);
-    var service = new AccessControlService(repository, display);
-
-    service.Check("some-account-id", "some-gate-id");
+  service.Check("some-account-id", "some-gate-id");
 }
 ```
 
@@ -291,7 +289,7 @@ static void Main(string[] args)
 ## into production
 
 ---
-## We celebrate
+## times to celebrate
 ## another victory
 
 ---
@@ -352,9 +350,7 @@ public class TcpAccountRepositoryTests
 ```
 
 ---
-## All tests 
-## are green
-<img src="MISSING">
+## All tests @color[green](are green)
 
 ---
 ## Different main
@@ -514,9 +510,7 @@ public abstract class AccountRepositoryContractTests
 ## Repository behaviour
 
 ---
-## All tests 
-## are green
-<img src="MISSING">
+## All tests @color[green](are green)
 
 ---
 ## But the Null is still there
