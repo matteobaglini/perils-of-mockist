@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace AccessControl.App
 {
@@ -6,7 +7,21 @@ namespace AccessControl.App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var fileName = "accounts.txt";
+            Touch(fileName);
+
+            var repository = new FlatFileAccountRepository(fileName);
+            var display = new ConsoleDisplay(Console.Out);
+            var service = new AccessControlService(repository, display);
+
+            service.Check("some-account-id", "some-gate-id");
+        }
+
+        private static void Touch(String fileName)
+        {
+            using (File.CreateText(fileName))
+            {
+            }
         }
     }
 }
