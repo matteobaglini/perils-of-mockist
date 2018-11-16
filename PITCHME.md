@@ -102,9 +102,6 @@
     - unknown badge
 
 ---
-# CODE TIME
-
----
 ## First account allowed
 ```csharp
 [Fact]
@@ -173,24 +170,19 @@ public void UnknownAccount()
 ---
 ## Implementation
 ```csharp
-public class AccessControlService
+public void Check(String accountId, String gateId)
 {
-    // ...constructor and fields
-
-    public void Check(String accountId, String gateId)
+    try
     {
-        try
-        {
-            var account = accountRepository.Load(accountId);
-            if (account.CanAccess(gateId))
-                display.ShowWelcomeMessage(account.Name);
-            else
-                display.ShowUnauthorizedAccess(account.Name);
-        }
-        catch (UnknownAccountException)
-        {
-            display.ShowUnknownAccount();
-        }
+        var account = accountRepository.Load(accountId);
+        if (account.CanAccess(gateId))
+            display.ShowWelcomeMessage(account.Name);
+        else
+            display.ShowUnauthorizedAccess(account.Name);
+    }
+    catch (UnknownAccountException)
+    {
+        display.ShowUnknownAccount();
     }
 }
 ```
@@ -304,10 +296,6 @@ static void Main(string[] args)
 ```
 
 ---
-## It works!
-<img src="assets/it-works.PNG">
-
----
 ## The app goes
 ## into production
 
@@ -333,14 +321,9 @@ static void Main(string[] args)
 ## new requirement
 
 ---
-## Tcp Server
-
 ### we need to integrate
 ### with an awesome 
 ### backend exposed via TCP
-
----
-# CODE TIME
 
 ---
 ## Tcp integration test
@@ -401,10 +384,6 @@ static void Main(string[] args)
 ```
 
 ---
-## It works!
-<img src="assets/it-works.PNG">
-
----
 ## The app goes
 ## into production
 
@@ -416,22 +395,22 @@ static void Main(string[] args)
 ## Customer report a bug
 
 ---
-## The infamous NRE
+## The infamous Null
 <img src="assets/run-null-reference.PNG">
 
 ---
 ## tests with mocks are so isolated
 ## that they do not offer feedback 
-## on the whole
+## on the whole, at all
 
 --- 
-## tests with mocks aren't a 
-## regression suite
+## tests with mocks aren't
+## a regression suite
 
 ---
 ## Issues
 1. LSP violation between repos
-2. no feedback on NRE
+2. no feedback on Null
 
 ---
 ## Fix LSP violation
@@ -440,10 +419,7 @@ static void Main(string[] args)
 ## Contract Tests
 
 ---
-# CODE TIME
-
----
-## Extract Arrange I
+## Extract Arrange (FlatFile)
 ```csharp
 public class FlatFileAccountRepositoryTests
 {
@@ -472,7 +448,7 @@ public class FlatFileAccountRepositoryTests
 ```
 
 ---
-## Extract Arrange II
+## Extract Arrange (Tcp)
 ```csharp
 public class TcpAccountRepositoryTests
 {
@@ -520,7 +496,7 @@ public abstract class AccountRepositoryContractTests
 ```
 
 ---
-## Even second test
+## Same as before
 ```csharp
 public abstract class AccountRepositoryContractTests
 {
@@ -543,7 +519,8 @@ public abstract class AccountRepositoryContractTests
 <img src="MISSING">
 
 ---
-## Align FlatFileAccountRepository behaviour
+## Align FlatFile to Tcp
+## Repository behaviour
 
 ---
 ## All tests 
@@ -551,11 +528,11 @@ public abstract class AccountRepositoryContractTests
 <img src="MISSING">
 
 ---
-## But the NRE is still there
+## But the Null is still there
 <img src="assets/run-null-reference.PNG">
 
 ---
-## Fix no feedback on NRE
+## Fix no feedback on Null
 
 
 
