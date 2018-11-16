@@ -1,4 +1,5 @@
-﻿using AccessControl.App;
+﻿using System;
+using AccessControl.App;
 using Moq;
 using Xunit;
 
@@ -48,8 +49,26 @@ namespace AccessControl.Tests
 
             accessControl.Check("23", "NOT-MY-GATE");
 
-            display.Verify(x => x.ShowUnauthroizedAccess("john"));
+            display.Verify(x => x.ShowUnauthorizedAccess("john"));
         }
 
+        [Fact]
+        public void UnknownAccount()
+        {
+            var accountRepository = new Mock<IAccountRepository>();
+            var display = new Mock<IDisplay>();
+
+            accountRepository
+                .Setup(x => x.Load(It.IsAny<String>()))
+                .Throws<UnknownAccountException>();
+
+            var accessControl = new AccessControlService(
+                                        accountRepository.Object,
+                                        display.Object);
+
+            accessControl.Check("DOES-NOT-EXIST", "42-B");
+
+            display.Verify(x => x.ShowUnknownAccount());
+        }
     }
 }

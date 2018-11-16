@@ -19,7 +19,7 @@ namespace AccessControl.App
             if (account.CanAccess(gateId))
                 display.ShowWelcomeMessage(account.Name);
             else
-                display.ShowUnauthroizedAccess(account.Name);
+                display.ShowUnauthorizedAccess(account.Name);
         }
     }
 }
