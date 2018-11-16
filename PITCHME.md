@@ -524,6 +524,7 @@ public abstract class AccountRepositoryContractTests
 <img src="assets/double-tdd.jpg">
 
 ---
+## GOOS suggest to
 ## Add System Tests
 ## to fix the issue
 
