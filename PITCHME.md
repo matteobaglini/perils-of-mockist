@@ -129,8 +129,8 @@ public void AccountAllowed()
                               display.Object);
 
   accountRepository
-      .Setup(x => x.Load("23"))
-      .Returns(new Account("23", "john", new[] { "42-B" }));
+    .Setup(x => x.Load("23"))
+    .Returns(new Account("23", "john", new[] { "42-B" }));
 
   accessControl.Check("23", "42-B");
 
@@ -149,21 +149,23 @@ public void AccountAllowed()
 [Fact]
 public void AccountDenied()
 {
-    var accountRepository = new Mock<IAccountRepository>();
-    var display = new Mock<IDisplay>();
-    var accessControl = new AccessControlService(
-                                accountRepository.Object,
-                                display.Object);
+  var accountRepository = new Mock<IAccountRepository>();
+  var display = new Mock<IDisplay>();
+  var accessControl = new AccessControlService(
+                              accountRepository.Object,
+                              display.Object);
 
-    accountRepository
-        .Setup(x => x.Load("23"))
-        .Returns(new Account("23", "john", new[] { "42-B" }));
+  accountRepository
+    .Setup(x => x.Load("23"))
+    .Returns(new Account("23", "john", new[] { "42-B" }));
 
-    accessControl.Check("23", "NOT-MY-GATE");
+  accessControl.Check("23", "NOT-MY-GATE");
 
-    display.Verify(x => x.ShowUnauthroizedAccess("john"));
+  display.Verify(x => x.ShowUnauthroizedAccess("john"));
 }
 ```
+@[14](different act)
+@[16](different mock expectation)
 
 ---
 ## And the unknown account
