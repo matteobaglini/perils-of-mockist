@@ -366,8 +366,12 @@ static void Main(string[] args)
 # @color[IndianRed](WTF!?)
 
 ---
-## The infamous Null Reference
+## The infamous Null
 <img src="assets/run-null-reference.PNG">
+
+---
+## How is it possible? 
+## I use TDD!
 
 ---
 ## tests with mocks are so isolated
