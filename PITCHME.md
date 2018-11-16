@@ -560,13 +560,128 @@ public abstract class AccountRepositoryContractTests
 ## Only Partial
 ## Or No System Tests
 
+---
+# Second Strategy
 
+---
+## Test Doubles
+- Dumb: Stub, Spy, Mock
+- Smart: Fake
 
+---
+## Fake Definition
 
+Fake objects actually have working implementations,
+but usually take some shortcut which makes them 
+not suitable for production.
 
+---
+## Real World Example
+<img src="assets/learning-transport1.jpg">
+<img src="assets/learning-transport2.jpg">
+<img src="assets/learning-transport3.jpg">
 
+---
+## Implements with Contract Tests
+```csharp
+public class InMemoryAccountRepositoryTests : AccountRepositoryContractTests
+{
+    protected override IAccountRepository CreateWith(String id, String name)
+    {
+        return new InMemoryAccountRepository(
+            new Account(id, name, new String[0]),
+            new Account("64", "mary", new String[0]));
+    }
 
+    protected override IAccountRepository CreateWithout(String id, String name)
+    {
+        return new InMemoryAccountRepository(
+            new Account($"NOT-{id}", $"NOT-{name}", new String[0]),
+            new Account("64", "mary", new String[0]));
+    }
+}
+```
 
+---
+## From Stub
+```csharp
+[Fact]
+public void AccountAllowed()
+{
+    var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
+    var display = new Mock<IDisplay>();
+
+    var accessControl = new AccessControlService(
+                                accountRepository,
+                                display.Object);
+
+    accessControl.Check("23", "42-B");
+
+    display.Verify(x => x.ShowWelcomeMessage("john"));
+}
+```
+
+---
+## To Fake
+```csharp
+[Fact]
+public void AccountAllowed()
+{
+    var accountRepository = new InMemoryAccountRepository(
+                new Account("23", "john", new[] { "42-B" }));
+    var display = new Mock<IDisplay>();
+
+    var accessControl = new AccessControlService(
+                                accountRepository,
+                                display.Object);
+
+    accessControl.Check("23", "42-B");
+
+    display.Verify(x => x.ShowWelcomeMessage("john"));
+}
+```
+
+---
+## Reg bar 
+## due to Null
+<img src="assets/in-the-end-usecase-is-red.PNG">
+
+---
+## Make test green
+
+---
+## Deploy into production
+
+---
+## Now, celebrate
+## another victory
+
+---
+# Recap
+###(my current TDD workflow)
+
+---
+## Start With Acceptance Test
+
+---
+## Introduce just enough
+## Fake collaborators
+## to design interactions
+
+---
+## Put Fake collaborators
+## under test
+
+---
+## Extract ContractTests
+
+---
+## Build real production
+## ready collaborators
+## with integration tests
+
+---
+## Repeat :-)
 
 ---
 # @color[GoldenRod](Thanks)
