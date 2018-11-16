@@ -5,7 +5,7 @@ The perils of mockist
 Mocking seems to be a popular choice for doing interaction base testing popularized by the GOOS book. In this talk, we're going to expose one of the problems I see using mocking style and we're going to take a look at a different approach.
 
 # Slides
-The slides are provided by GitPitch ([show](https://gitpitch.com/matteobaglini/perils-of-mockist/presentation)).
+The slides are provided by GitPitch ([show](https://gitpitch.com/matteobaglini/perils-of-mockist/master)).
 
 # Code
 The problem is demonstrated with an example in C# on .NET Core, but it is ortogonal to the tecnology.
