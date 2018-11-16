@@ -111,10 +111,10 @@
 
 ---
 ## Use cases:
-- an employee can access
-- an employee cannot acces
-    - unauthorized badge
-    - unknown badge
+- account can access
+- account cannot acces
+    - unauthorized
+    - unknown
 
 ---
 ## First account allowed
@@ -137,6 +137,8 @@ public void AccountAllowed()
   display.Verify(x => x.ShowWelcomeMessage("john"));
 }
 ```
+@[4-5](collaborators)
+@[6-8](object under test)
 
 ---
 ## Then account denied
