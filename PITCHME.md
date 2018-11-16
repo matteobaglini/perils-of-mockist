@@ -139,6 +139,9 @@ public void AccountAllowed()
 ```
 @[4-5](collaborators)
 @[6-8](object under test)
+@[9-12](mock setup)
+@[14](act)
+@[16](mock expectation)
 
 ---
 ## Then account denied
