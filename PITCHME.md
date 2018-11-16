@@ -672,4 +672,5 @@ public void AccountAllowed()
 ## ...or exhausted :-)
 
 ---
-# that's all, @color[GoldenRod](Thanks)
+# that's all
+# @color[GoldenRod](Thanks)
