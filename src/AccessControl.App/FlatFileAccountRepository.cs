@@ -15,6 +15,9 @@ namespace AccessControl.App
 
         public Account Load(String id)
         {
+            if (!File.Exists(fileName))
+                return null;
+
             var all = File.ReadAllLines(fileName);
             var accounts = all.Select(Parse).ToList();
             var accountFound = accounts.FirstOrDefault(x => x.Id == id);

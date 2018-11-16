@@ -11,7 +11,7 @@ namespace AccessControl.Tests
          * TEST LIST:
          * X account found
          * X account not found
-         * - missing file
+         * X missing file
          */
 
         [Fact]
@@ -40,6 +40,21 @@ namespace AccessControl.Tests
             var repo = new FlatFileAccountRepository(fileName);
 
             Assert.Throws<UnknownAccountException>(() => repo.Load("NOT-23"));
+        }
+
+        [Fact]
+        public void MissingFile()
+        {
+            var fileName = RandomName();
+
+            var repo = new FlatFileAccountRepository(fileName);
+
+            Assert.Null(repo.Load("23"));
+        }
+
+        private static String RandomName()
+        {
+            return Guid.NewGuid().ToString();
         }
 
         private static String PrepareFileWith(params String[] lines)
