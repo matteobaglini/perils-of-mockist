@@ -534,6 +534,34 @@ public abstract class AccountRepositoryContractTests
 ---
 ## Fix no feedback on Null
 
+---
+# First Strategy
+
+---
+## I'm a bad mockist
+## like 90% of devs
+
+---
+## Outside-in means
+## Double TDD cycle
+<img src="assets/double-tdd.jpg">
+
+---
+## Add System Tests
+## to fix the issue
+
+---
+## Integrated tests
+## are scam
+
+---
+## True Story
+
+## Only Partial
+## Or No System Tests
+
+
+
 
 
 
