@@ -268,9 +268,8 @@ public class ConsoleDisplayTests
 ```
 
 ---
-## All tests
-## are green
-<img src="assets/green-bar.png">
+## Green Bar
+<img height="200" src="assets/green-bar.png">
 
 ---
 ## Program main
