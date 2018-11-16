@@ -24,13 +24,13 @@
 # @color[GoldenRod](Disclaimer)
 
 ---
-## not about classicist vs mockist war
+## @color[GoldenRod](1.) not about classicist vs mockist
 
 ---
-## ... and  does not want to demonize mock objects
+## @color[GoldenRod](2.) does not want to demonize mock objects
 
 ---
-# Relax
+# Relax, have fun :-)
 
 ---
 ## My goal is to pinpoint to a problem I see around and how I handle it
