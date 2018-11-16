@@ -11,11 +11,11 @@
 
 ---
 # Co-found
-<img height="500" src="assets/doubleloop2-min.png">
+<img height="400" src="assets/doubleloop2-min.png">
 
 ---
 # Collaborate with
-<img src="assets/avanscoperta2-min.png">
+<img height="400" src="assets/avanscoperta2-min.png">
 
 ---
 ## How many of you use mocks and mock library?
