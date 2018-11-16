@@ -16,7 +16,10 @@ namespace AccessControl.App
         public void Check(String accountId, String gateId)
         {
             var account = accountRepository.Load(accountId);
-            display.ShowWelcomeMessage(account.Name);
+            if (account.CanAccess(gateId))
+                display.ShowWelcomeMessage(account.Name);
+            else
+                display.ShowUnauthroizedAccess(account.Name);
         }
     }
 }

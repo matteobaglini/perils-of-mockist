@@ -9,7 +9,7 @@ namespace AccessControl.Tests
         /*
          * TEST LIST:
          * X account allowed
-         * - account denied
+         * X account denied
          * - unknown account
          */
 

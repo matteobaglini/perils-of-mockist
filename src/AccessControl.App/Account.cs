@@ -1,16 +1,24 @@
-﻿namespace AccessControl.App
+﻿using System;
+using System.Linq;
+
+namespace AccessControl.App
 {
     public class Account
     {
-        public string Name { get; }
-        private readonly string id;
-        private readonly string[] permittedGates;
+        public String Name { get; }
+        private readonly String id;
+        private readonly String[] permittedGates;
 
-        public Account(string id, string name, string[] permittedGates)
+        public Account(String id, String name, String[] permittedGates)
         {
             Name = name;
             this.id = id;
             this.permittedGates = permittedGates;
+        }
+
+        public Boolean CanAccess(String gateId)
+        {
+            return permittedGates.Contains(gateId);
         }
     }
 }
