@@ -268,8 +268,7 @@ public class ConsoleDisplayTests
 ```
 
 ---
-## Green Bar
-<img height="400" src="assets/green-bar.png">
+## @color[green](Green Bar)
 
 ---
 ## Program main
