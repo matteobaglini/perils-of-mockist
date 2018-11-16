@@ -371,7 +371,7 @@ static void Main(string[] args)
 
 ---
 ## How is it possible? 
-## I use TDD!
+## I have a regression test suite!
 
 ---
 ## tests with mocks are so isolated
