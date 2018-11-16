@@ -63,6 +63,5 @@ namespace AccessControl.Tests
             File.WriteAllLines(fileName, lines ?? new String[0]);
             return fileName;
         }
-
     }
 }
