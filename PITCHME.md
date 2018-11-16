@@ -2,13 +2,20 @@
 # of @color[GoldenRod](mockist)
 
 ---
-# Who am I?
-<img align="left" src="assets/doubleloop.png">
-<img align="right" height="79" src="assets/avanscoperta-bianco.png">
-<br /><br />
-- declared @color[GoldenRod](developer) ;-)
-- enthusiastic technical @color[GoldenRod](trainer/coach)
-- wannabe @color[GoldenRod](entrepreneur)
+# Who am I? What I do?
+- Hi, I'm Matteo!
+- Came from Italy -> Tuscany -> Leghorn
+- Declared @color[GoldenRod](developer) ;-)
+- Enthusiastic technical @color[GoldenRod](trainer/coach)
+- Wannabe @color[GoldenRod](entrepreneur)
+
+---
+# Co-found
+<img src="assets/doubleloop2.png">
+
+---
+# Collaborate with
+<img src="assets/avanscoperta2.png">
 
 ---
 ## How many of you use mocks and mock library?

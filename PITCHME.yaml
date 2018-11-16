@@ -1,3 +1,2 @@
-# theme : moon
-# highlight : dracula
+highlight : dracula
 theme-override : assets/css/PITCHME.css
