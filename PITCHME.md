@@ -668,8 +668,8 @@ public void AccountAllowed()
 ## with integration tests
 
 ---
-## Repeat...
-## until done or exausted :-)
+## Repeatuntil done 
+## ...or exhausted :-)
 
 ---
 # @color[GoldenRod](Thanks)
