@@ -306,7 +306,7 @@ static void Main(string[] args)
 ## it always happens!
 
 ---
-## new requirement
+## new @color[IndianRed](requirement)
 
 ### integrate with an awesome 
 ### backend exposed via TCP
@@ -337,7 +337,7 @@ public class TcpAccountRepositoryTests
 ## All tests @color[green](are green)
 
 ---
-## Different main
+## Different "installation"
 ```csharp
 static void Main(string[] args)
 {
@@ -360,7 +360,7 @@ static void Main(string[] args)
 ## another victory
 
 ---
-## Customer report a bug
+## Customer report a @color[IndianRed](bug)
 
 ---
 # @color[IndianRed](WTF!?)
@@ -372,6 +372,9 @@ static void Main(string[] args)
 ---
 ## How is it possible? 
 ## I have a regression test suite!
+
+---
+# True Story
 
 ---
 ## tests with mocks
@@ -537,10 +540,9 @@ public abstract class AccountRepositoryContractTests
 ## are scam
 
 ---
-## True Story
-
-### Only Partial Or
-### No System Tests at all
+## Only Partial Or
+## No System Tests at all
+## In almost codebases
 
 ---
 # @color[GoldenRod](Second) Strategy
@@ -625,7 +627,7 @@ public void AccountAllowed()
     display.Verify(x => x.ShowWelcomeMessage("john"));
 }
 ```
-@[3-4](instantiate the fake repo)
+@[4-5](instantiate the fake repo)
 
 ---
 ## Finally a test @color[red](is red)
@@ -651,13 +653,13 @@ public void AccountAllowed()
 ## Start With Acceptance Test
 
 ---
-## Introduce just enough
-## Fake collaborators
+## Introduce Fake collaborators
 ## to design interactions
 
 ---
 ## Put Fake collaborators
 ## under test
+## just enough implementation
 
 ---
 ## Extract Contract Tests
