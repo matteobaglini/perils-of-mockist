@@ -625,10 +625,10 @@ public void AccountAllowed()
     display.Verify(x => x.ShowWelcomeMessage("john"));
 }
 ```
+@[3-4](instantiate the fake repo)
 
 ---
-## Reg bar 
-## due to Null
+## Finally a test @color[red](is red)
 <img src="assets/in-the-end-usecase-is-red.PNG">
 
 ---
