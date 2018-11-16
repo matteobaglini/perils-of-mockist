@@ -585,21 +585,24 @@ public class InMemoryAccountRepositoryTests : AccountRepositoryContractTests
 ```
 
 ---
-## From Stub
+## Change from mock
 ```csharp
 [Fact]
 public void AccountAllowed()
 {
-    var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
-    var display = new Mock<IDisplay>();
+  var accountRepository = new Mock<IAccountRepository>();
+  var display = new Mock<IDisplay>();
+  var accessControl = new AccessControlService(
+                              accountRepository.Object,
+                              display.Object);
 
-    var accessControl = new AccessControlService(
-                                accountRepository,
-                                display.Object);
+  accountRepository
+    .Setup(x => x.Load("23"))
+    .Returns(new Account("23", "john", new[] { "42-B" }));
 
-    accessControl.Check("23", "42-B");
+  accessControl.Check("23", "42-B");
 
-    display.Verify(x => x.ShowWelcomeMessage("john"));
+  display.Verify(x => x.ShowWelcomeMessage("john"));
 }
 ```
 
