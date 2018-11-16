@@ -32,5 +32,24 @@ namespace AccessControl.Tests
             display.Verify(x => x.ShowWelcomeMessage("john"));
         }
 
+        [Fact]
+        public void AccountDenied()
+        {
+            var accountRepository = new Mock<IAccountRepository>();
+            var display = new Mock<IDisplay>();
+
+            accountRepository
+                .Setup(x => x.Load("23"))
+                .Returns(new Account("23", "john", new[] { "42-B" }));
+
+            var accessControl = new AccessControlService(
+                                        accountRepository.Object,
+                                        display.Object);
+
+            accessControl.Check("23", "NOT-MY-GATE");
+
+            display.Verify(x => x.ShowUnauthroizedAccess("john"));
+        }
+
     }
 }
