@@ -210,7 +210,7 @@ public void Check(String accountId, String gateId)
 ```
 
 ---
-## Repository integration tests
+## Repo integration tests
 ```csharp
 public class FlatFileAccountRepositoryTests
 {
