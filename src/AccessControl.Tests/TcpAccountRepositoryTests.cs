@@ -12,12 +12,6 @@ namespace AccessControl.Tests
 {
     public class TcpAccountRepositoryTests
     {
-        /*
-         * TEST LIST:
-         * X account found
-         * X account not found
-         */
-
         [Fact]
         public void Found()
         {

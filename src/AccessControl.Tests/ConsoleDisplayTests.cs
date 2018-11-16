@@ -7,13 +7,6 @@ namespace AccessControl.Tests
 {
     public class ConsoleDisplayTests
     {
-       /*
-        * TEST LIST:
-        * X welcome message
-        * X unauth message
-        * X unknown message
-        */
-
         [Fact]
         public void WelcomeMessage()
         {

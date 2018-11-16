@@ -7,13 +7,6 @@ namespace AccessControl.Tests
 {
     public class AccessControlServiceTests
     {
-        /*
-         * TEST LIST:
-         * X account allowed
-         * X account denied
-         * X unknown account
-         */
-
         [Fact]
         public void AccountAllowed()
         {

@@ -7,13 +7,6 @@ namespace AccessControl.Tests
 {
     public class FlatFileAccountRepositoryTests
     {
-        /*
-         * TEST LIST:
-         * X account found
-         * X account not found
-         * X missing file
-         */
-
         [Fact]
         public void Found()
         {
