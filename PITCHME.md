@@ -11,7 +11,7 @@
 
 ---
 # Co-found
-<img height="100" src="assets/doubleloop2-min.png">
+<img height="500" src="assets/doubleloop2-min.png">
 
 ---
 # Collaborate with
