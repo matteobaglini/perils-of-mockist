@@ -313,37 +313,25 @@ static void Main(string[] args)
 ### backend exposed via TCP
 
 ---
-## Tcp integration test
+## Tcp integration tests
 ```csharp
 public class TcpAccountRepositoryTests
 {
-    [Fact]
-    public void Found()
-    {
-        var (address, port) = PrepareTcpServer(
-            "23, john, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
-        var repo = new TcpAccountRepository(address, port);
+  [Fact]
+  public void Found()
+  {
+    var (address, port) = PrepareTcpServer(
+        "23, john, 23-B|47-H",
+        "64, mary, 55-B|31-H|67-A");
+    var repo = new TcpAccountRepository(address, port);
 
-        var account = repo.Load("23");
+    var account = repo.Load("23");
 
-        Assert.Equal("john", account.Name);
-    }
+    Assert.Equal("john", account.Name);
+  }
 
-    [Fact]
-    public void NotFound()
-    {
-        var (address, port) = PrepareTcpServer(
-            "23, john, 23-B|47-H",
-            "64, mary, 55-B|31-H|67-A"
-        );
-        var repo = new TcpAccountRepository(address, port);
-
-        Assert.Null(repo.Load("NOT-23"));
-    }
-
-    // ...private utils
+  // ...more tests
+  // ...private utils
 }
 ```
 
@@ -355,16 +343,13 @@ public class TcpAccountRepositoryTests
 ```csharp
 static void Main(string[] args)
 {
-    var (address, port) = PrepareTcpServer(
-        "23, john, 23-B|47-H",
-        "64, mary, 55-B|31-H|67-A"
-    );
+  var address = "some-ip";
+  var port = 123 // some port
+  var repository = new TcpAccountRepository(address, port);
+  var display = new ConsoleDisplay(Console.Out);
+  var service = new AccessControlService(repository, display);
 
-    var repository = new TcpAccountRepository(address, port);
-    var display = new ConsoleDisplay(Console.Out);
-    var service = new AccessControlService(repository, display);
-
-    service.Check("some-account-id", "some-gate-id");
+  service.Check("some-account-id", "some-gate-id");
 }
 ```
 
@@ -378,6 +363,9 @@ static void Main(string[] args)
 
 ---
 ## Customer report a bug
+
+---
+# @color[IndianRed](WTF!?)
 
 ---
 ## The infamous Null
