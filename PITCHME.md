@@ -239,69 +239,38 @@ public class FlatFileAccountRepositoryTests
       () => repo.Load("NOT-23"));
   }
 
-  [Fact]
-  public void MissingFile()
-  {
-    var fileName = RandomName();
-    var repo = new FlatFileAccountRepository(fileName);
-
-    Assert.Null(repo.Load("23"));
-  }
-
-  // ...private utils
+  // ... other tests
+  // ... private utils
 }
 ```
 @[3-14](account found)
-@[16-26](account found)
-@[28-35](account found)
+@[16-26](account not found)
 
 ---
 ## Display integration tests
 ```csharp
 public class ConsoleDisplayTests
 {
-    [Fact]
-    public void WelcomeMessage()
-    {
-        var writer = new StringWriter();
-        var display = new ConsoleDisplay(writer);
+  [Fact]
+  public void WelcomeMessage()
+  {
+    var writer = new StringWriter();
+    var display = new ConsoleDisplay(writer);
 
-        display.ShowWelcomeMessage("john");
+    display.ShowWelcomeMessage("john");
 
-        Assert.Equal("Welcome john!" + 
-            Environment.NewLine, writer.ToString());
-    }
+    Assert.Equal("Welcome john!" + 
+        Environment.NewLine, writer.ToString());
+  }
 
-    [Fact]
-    public void UnauthorizedMessage()
-    {
-        var writer = new StringWriter();
-        var display = new ConsoleDisplay(writer);
-
-        display.ShowUnauthorizedAccess("john");
-
-        Assert.Equal("Access denied john!" +
-            Environment.NewLine, writer.ToString());
-    }
-
-    [Fact]
-    public void UnknownMessage()
-    {
-        var writer = new StringWriter();
-        var display = new ConsoleDisplay(writer);
-
-        display.ShowUnknownAccount();
-
-        Assert.Equal("Sorry, we don't know you." +
-            Environment.NewLine, writer.ToString());
-    }
+  // ... other tests
 }
 ```
 
 ---
 ## All tests
 ## are green
-<img src="MISSING">
+<img src="assets/green-bar.png">
 
 ---
 ## Program main
