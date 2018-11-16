@@ -508,13 +508,15 @@ public abstract class AccountRepositoryContractTests
 <img src="assets/run-null-reference.PNG">
 
 ---
-## @color[GoldenRod](2.) Fix no feedback on Null reference
+## @color[GoldenRod](2.) Fix no feedback 
+## on Null reference
 
 ---
-# First Strategy
+# @color[GoldenRod](First) Strategy
 
 ---
-## I'm a bad mockist
+## I was a bad mockist
+## practitioner
 ## like 90% of devs
 
 ---
