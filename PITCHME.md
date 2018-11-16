@@ -374,9 +374,8 @@ static void Main(string[] args)
 ## I have a regression test suite!
 
 ---
-## tests with mocks are 
-## so isolated that 
-## they do not offer feedback 
+## tests with mocks
+## do not offer feedback 
 ## on the whole, at all
 
 --- 
