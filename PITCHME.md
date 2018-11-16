@@ -269,7 +269,7 @@ public class ConsoleDisplayTests
 
 ---
 ## Green Bar
-<img height="200" src="assets/green-bar.png">
+<img height="400" src="assets/green-bar.png">
 
 ---
 ## Program main
