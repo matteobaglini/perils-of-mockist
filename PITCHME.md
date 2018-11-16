@@ -77,19 +77,21 @@
 ## Classicist TDD
 
 ---
-## In this context a Mock
-## is a replace for 
+## A Mock is a replace for 
 ## hard to test resource
 
 ---
-## Popularized by XP Explained and TDD by Example books
+## Popularized by @color[GoldenRod](XP Explained)
+## and @color[IndianRed](TDD by Example) books
 
 ---
 ## Mockist TDD
 
 ---
-## Need-Driven
-## Design
+## Need-Driven Design
+
+### Design provider interface
+### from the consumer point of view
 
 ---
 ## Impose an outside-in approch
