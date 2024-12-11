@@ -6,14 +6,14 @@ namespace AccessControl.App
 {
     public class FlatFileAccountRepository : IAccountRepository
     {
-        private readonly String fileName;
+        private readonly string fileName;
 
-        public FlatFileAccountRepository(String fileName)
+        public FlatFileAccountRepository(string fileName)
         {
             this.fileName = fileName;
         }
 
-        public Account Load(String id)
+        public Account Load(string id)
         {
             if (!File.Exists(fileName))
                 return null;

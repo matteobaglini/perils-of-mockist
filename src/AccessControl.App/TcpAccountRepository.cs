@@ -7,30 +7,30 @@ namespace AccessControl.App
 {
     public class TcpAccountRepository : IAccountRepository
     {
-        private readonly String address;
-        private readonly Int32 port;
+        private readonly string address;
+        private readonly int port;
 
-        public TcpAccountRepository(String address, Int32 port)
+        public TcpAccountRepository(string address, int port)
         {
             this.address = address;
             this.port = port;
         }
 
-        public Account Load(String id)
+        public Account Load(string id)
         {
-            String responseData;
+            string responseData;
             using (var client = new TcpClient(address, port))
             using (var stream = client.GetStream())
             {
                 var dataOut = Encoding.ASCII.GetBytes(id);
                 stream.Write(dataOut, 0, dataOut.Length);
 
-                var dataIn = new Byte[1024];
+                var dataIn = new byte[1024];
                 var bytes = stream.Read(dataIn, 0, dataIn.Length);
                 responseData = Encoding.ASCII.GetString(dataIn, 0, bytes);
             }
 
-            if (String.IsNullOrWhiteSpace(responseData))
+            if (string.IsNullOrWhiteSpace(responseData))
                 return null;
 
             return Parse(responseData);

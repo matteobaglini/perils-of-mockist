@@ -4,8 +4,8 @@ namespace AccessControl.App
 {
     public interface IDisplay
     {
-        void ShowWelcomeMessage(String name);
-        void ShowUnauthorizedAccess(String name);
+        void ShowWelcomeMessage(string name);
+        void ShowUnauthorizedAccess(string name);
         void ShowUnknownAccount();
     }
 }

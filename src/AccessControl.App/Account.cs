@@ -5,18 +5,18 @@ namespace AccessControl.App
 {
     public class Account
     {
-        public String Id { get; }
-        public String Name { get; }
-        private readonly String[] permittedGates;
+        public string Id { get; }
+        public string Name { get; }
+        private readonly string[] permittedGates;
 
-        public Account(String id, String name, String[] permittedGates)
+        public Account(string id, string name, string[] permittedGates)
         {
             Id = id;
             Name = name;
             this.permittedGates = permittedGates;
         }
 
-        public Boolean CanAccess(String gateId)
+        public Boolean CanAccess(string gateId)
         {
             return permittedGates.Contains(gateId);
         }

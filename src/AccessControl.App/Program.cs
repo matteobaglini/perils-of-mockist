@@ -23,7 +23,7 @@ namespace AccessControl.App
             service.Check("some-account-id", "some-gate-id");
         }
 
-        private static (String, Int32) PrepareTcpServer(params String[] lines)
+        private static (string, int) PrepareTcpServer(params string[] lines)
         {
             var address = "127.0.0.1";
             var port = 13000;
@@ -35,12 +35,12 @@ namespace AccessControl.App
                 using (var client = server.AcceptTcpClient())
                 using (var stream = client.GetStream())
                 {
-                    var dataIn = new Byte[1024];
+                    var dataIn = new byte[1024];
 
                     var bytes = stream.Read(dataIn, 0, dataIn.Length);
                     var id = Encoding.ASCII.GetString(dataIn, 0, bytes);
                     var line = lines.FirstOrDefault(x => x.StartsWith(id));
-                    var dataOut = Encoding.ASCII.GetBytes(line ?? String.Empty);
+                    var dataOut = Encoding.ASCII.GetBytes(line ?? string.Empty);
                     stream.Write(dataOut, 0, dataOut.Length);
 
                     client.Close();

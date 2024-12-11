@@ -13,7 +13,7 @@ namespace AccessControl.App
             this.display = display;
         }
 
-        public void Check(String accountId, String gateId)
+        public void Check(string accountId, string gateId)
         {
             try
             {

@@ -4,6 +4,6 @@ namespace AccessControl.App
 {
     public interface IAccountRepository
     {
-        Account Load(String id);
+        Account Load(string id);
     }
 }

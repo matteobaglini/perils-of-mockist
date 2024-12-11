@@ -12,12 +12,12 @@ namespace AccessControl.App
             this.writer = writer;
         }
 
-        public void ShowWelcomeMessage(String name)
+        public void ShowWelcomeMessage(string name)
         {
             writer.WriteLine("Welcome {0}!", name);
         }
 
-        public void ShowUnauthorizedAccess(String name)
+        public void ShowUnauthorizedAccess(string name)
         {
             writer.WriteLine("Access denied {0}!", name);
         }
