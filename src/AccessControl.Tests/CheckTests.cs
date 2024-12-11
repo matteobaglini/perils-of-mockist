@@ -1,14 +1,12 @@
-using System;
 using Xunit;
 
-namespace AccessControl.Tests
+namespace AccessControl.Tests;
+
+public class CheckTests
 {
-    public class CheckTests
+    [Fact]
+    public void ItWorks()
     {
-        [Fact]
-        public void ItWorks()
-        {
-            Assert.Equal("test", "test");
-        }
+        Assert.Equal("test", "test");
     }
 }
