@@ -16,9 +16,6 @@ public class AccessControlServiceTests
     [Fact]
     public void AccountAllowed()
     {
-        var accountRepository = new Mock<IAccountRepository>();
-        var display = new Mock<IDisplay>();
-
         accountRepository
             .Setup(x => x.Load("23"))
             .Returns(new Account("23", "john", new[] { "42-B" }));
@@ -35,9 +32,6 @@ public class AccessControlServiceTests
     [Fact]
     public void AccountDenied()
     {
-        var accountRepository = new Mock<IAccountRepository>();
-        var display = new Mock<IDisplay>();
-
         accountRepository
             .Setup(x => x.Load("23"))
             .Returns(new Account("23", "john", new[] { "42-B" }));
@@ -54,9 +48,6 @@ public class AccessControlServiceTests
     [Fact]
     public void UnknownAccount()
     {
-        var accountRepository = new Mock<IAccountRepository>();
-        var display = new Mock<IDisplay>();
-
         accountRepository
             .Setup(x => x.Load(It.IsAny<string>()))
             .Throws<UnknownAccountException>();
@@ -69,4 +60,7 @@ public class AccessControlServiceTests
 
         display.Verify(x => x.ShowUnknownAccount());
     }
+
+    private readonly Mock<IAccountRepository> accountRepository = new Mock<IAccountRepository>();
+    private readonly Mock<IDisplay> display = new Mock<IDisplay>();
 }

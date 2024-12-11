@@ -13,7 +13,7 @@ public class FlatFileAccountRepositoryTests
      * [X] account not found
      * [X] missing file
      */
-
+    
     [Fact]
     public void Found()
     {
@@ -45,6 +45,10 @@ public class FlatFileAccountRepositoryTests
     [Fact]
     public void MissingFile()
     {
+         PrepareFileWith(
+            "23, john, 23-B|47-H",
+            "64, mary, 55-B|31-H|67-A"
+        );
         var fileName = RandomName();
 
         var repo = new FlatFileAccountRepository(fileName);
@@ -52,10 +56,8 @@ public class FlatFileAccountRepositoryTests
         Assert.Null(repo.Load("23"));
     }
 
-    private static string RandomName()
-    {
-        return Guid.NewGuid().ToString();
-    }
+    private static string RandomName() => 
+        Guid.NewGuid().ToString();
 
     private static string PrepareFileWith(params string[] lines)
     {
