@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace AccessControl.App
+namespace AccessControl.App;
+
+public class UnknownAccountException : Exception
 {
-    public class UnknownAccountException : Exception
-    {
-    }
 }

@@ -6,7 +6,7 @@ namespace AccessControl.Tests
 {
     public abstract class AccountRepositoryContractTests
     {
-        protected abstract IAccountRepository CreateWith(String id, String name);
+        protected abstract IAccountRepository CreateWith(string id, string name);
 
         [Fact]
         public void Found()
@@ -18,7 +18,7 @@ namespace AccessControl.Tests
             Assert.Equal("john", account.Name);
         }
 
-        protected abstract IAccountRepository CreateWithout(String id, String name);
+        protected abstract IAccountRepository CreateWithout(string id, string name);
 
         [Fact]
         public void NotFound()

@@ -3,41 +3,47 @@ using System.IO;
 using AccessControl.App;
 using Xunit;
 
-namespace AccessControl.Tests
+namespace AccessControl.Tests;
+
+public class ConsoleDisplayTests
 {
-    public class ConsoleDisplayTests
+    /*
+     * TEST LIST:
+     * [X] welcome message
+     * [X] unauth message
+     * [X] unknown message
+     */
+
+    [Fact]
+    public void WelcomeMessage()
     {
-        [Fact]
-        public void WelcomeMessage()
-        {
-            var writer = new StringWriter();
-            var display = new ConsoleDisplay(writer);
+        var writer = new StringWriter();
+        var display = new ConsoleDisplay(writer);
 
-            display.ShowWelcomeMessage("john");
+        display.ShowWelcomeMessage("john");
 
-            Assert.Equal("Welcome john!" + Environment.NewLine, writer.ToString());
-        }
+        Assert.Equal("Welcome john!" + Environment.NewLine, writer.ToString());
+    }
 
-        [Fact]
-        public void UnauthorizedMessage()
-        {
-            var writer = new StringWriter();
-            var display = new ConsoleDisplay(writer);
+    [Fact]
+    public void UnauthorizedMessage()
+    {
+        var writer = new StringWriter();
+        var display = new ConsoleDisplay(writer);
 
-            display.ShowUnauthorizedAccess("john");
+        display.ShowUnauthorizedAccess("john");
 
-            Assert.Equal("Access denied john!" + Environment.NewLine, writer.ToString());
-        }
+        Assert.Equal("Access denied john!" + Environment.NewLine, writer.ToString());
+    }
 
-        [Fact]
-        public void UnknownMessage()
-        {
-            var writer = new StringWriter();
-            var display = new ConsoleDisplay(writer);
+    [Fact]
+    public void UnknownMessage()
+    {
+        var writer = new StringWriter();
+        var display = new ConsoleDisplay(writer);
 
-            display.ShowUnknownAccount();
+        display.ShowUnknownAccount();
 
-            Assert.Equal("Sorry, we don't know you." + Environment.NewLine, writer.ToString());
-        }
+        Assert.Equal("Sorry, we don't know you." + Environment.NewLine, writer.ToString());
     }
 }

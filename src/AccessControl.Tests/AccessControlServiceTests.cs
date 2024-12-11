@@ -1,55 +1,52 @@
-﻿using System;
-using AccessControl.App;
+﻿using AccessControl.App;
 using Moq;
 using Xunit;
 
-namespace AccessControl.Tests
+namespace AccessControl.Tests;
+
+public class AccessControlServiceTests
 {
-    public class AccessControlServiceTests
+    [Fact]
+    public void AccountAllowed()
     {
-        [Fact]
-        public void AccountAllowed()
-        {
-            var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
-            var display = new Mock<IDisplay>();
+        var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
 
-            var accessControl = new AccessControlService(
-                                        accountRepository,
-                                        display.Object);
+        var accessControl = new AccessControlService(
+            accountRepository,
+            display.Object);
 
-            accessControl.Check("23", "42-B");
+        accessControl.Check("23", "42-B");
 
-            display.Verify(x => x.ShowWelcomeMessage("john"));
-        }
-
-        [Fact]
-        public void AccountDenied()
-        {
-            var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
-            var display = new Mock<IDisplay>();
-
-            var accessControl = new AccessControlService(
-                                        accountRepository,
-                                        display.Object);
-
-            accessControl.Check("23", "NOT-MY-GATE");
-
-            display.Verify(x => x.ShowUnauthorizedAccess("john"));
-        }
-
-        [Fact]
-        public void UnknownAccount()
-        {
-            var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
-            var display = new Mock<IDisplay>();
-
-            var accessControl = new AccessControlService(
-                                        accountRepository,
-                                        display.Object);
-
-            accessControl.Check("DOES-NOT-EXIST", "42-B");
-
-            display.Verify(x => x.ShowUnknownAccount());
-        }
+        display.Verify(x => x.ShowWelcomeMessage("john"));
     }
+
+    [Fact]
+    public void AccountDenied()
+    {
+        var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
+
+        var accessControl = new AccessControlService(
+            accountRepository,
+            display.Object);
+
+        accessControl.Check("23", "NOT-MY-GATE");
+
+        display.Verify(x => x.ShowUnauthorizedAccess("john"));
+    }
+
+    [Fact]
+    public void UnknownAccount()
+    {
+        var accountRepository = new InMemoryAccountRepository(new Account("23", "john", new[] { "42-B" }));
+
+        var accessControl = new AccessControlService(
+            accountRepository,
+            display.Object);
+
+        accessControl.Check("DOES-NOT-EXIST", "42-B");
+
+        display.Verify(x => x.ShowUnknownAccount());
+    }
+
+    private readonly Mock<IDisplay> display = new Mock<IDisplay>();
 }

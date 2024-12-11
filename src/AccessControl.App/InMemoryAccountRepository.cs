@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Linq;
 
-namespace AccessControl.App
+namespace AccessControl.App;
+
+public class InMemoryAccountRepository : IAccountRepository
 {
-    public class InMemoryAccountRepository : IAccountRepository
-    {
-        private readonly Account[] accounts;
+    private readonly Account[] accounts;
 
-        public InMemoryAccountRepository(params Account[] accounts)
-        {
-            this.accounts = accounts ?? new Account[0];
-        }
+    public InMemoryAccountRepository(params Account[] accounts) =>
+        this.accounts = accounts ?? Array.Empty<Account>();
 
-        public Account Load(String id)
-        {
-            return accounts.FirstOrDefault(x => x.Id == id);
-        }
-    }
+    public Account Load(string id) =>
+        accounts.FirstOrDefault(x => x.Id == id);
 }
