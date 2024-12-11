@@ -1,11 +1,8 @@
-﻿using System;
+﻿namespace AccessControl.App;
 
-namespace AccessControl.App
+public interface IDisplay
 {
-    public interface IDisplay
-    {
-        void ShowWelcomeMessage(String name);
-        void ShowUnauthorizedAccess(String name);
-        void ShowUnknownAccount();
-    }
+    void ShowWelcomeMessage(string name);
+    void ShowUnauthorizedAccess(string name);
+    void ShowUnknownAccount();
 }
