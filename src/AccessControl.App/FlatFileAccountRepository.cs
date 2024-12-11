@@ -7,19 +7,18 @@ public class FlatFileAccountRepository : IAccountRepository
 {
     private readonly string fileName;
 
-    public FlatFileAccountRepository(string fileName)
-    {
+    public FlatFileAccountRepository(string fileName) => 
         this.fileName = fileName;
-    }
 
     public Account Load(string id)
     {
         if (!File.Exists(fileName))
             return null;
 
-        var all = File.ReadAllLines(fileName);
-        var accounts = all.Select(Parse).ToList();
-        var accountFound = accounts.FirstOrDefault(x => x.Id == id);
+        var accountFound = File.ReadAllLines(fileName)
+            .Select(Parse)
+            .FirstOrDefault(x => x.Id == id);
+        
         if (accountFound == null)
             throw new UnknownAccountException();
 

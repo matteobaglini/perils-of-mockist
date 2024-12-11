@@ -10,10 +10,8 @@ class Program
         var display = new ConsoleDisplay(Console.Out);
         var service = new AccessControlService(repository, display);
 
-        // service.Check("some-account-id", "some-gate-id"); // Sorry, we don't know you.
-        
+        // service.Check("23", "23-B"); // Welcome John!
         // service.Check("23", "67-A"); // Access denied John!
-        
-        service.Check("23", "23-B"); // Welcome John!
+        // service.Check("some-account-id", "some-gate-id"); // Sorry, we don't know you.
     }
 }

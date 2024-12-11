@@ -6,23 +6,15 @@ public class ConsoleDisplay : IDisplay
 {
     private readonly TextWriter writer;
 
-    public ConsoleDisplay(TextWriter writer)
-    {
+    public ConsoleDisplay(TextWriter writer) =>
         this.writer = writer;
-    }
 
-    public void ShowWelcomeMessage(string name)
-    {
+    public void ShowWelcomeMessage(string name) =>
         writer.WriteLine("Welcome {0}!", name);
-    }
 
-    public void ShowUnauthorizedAccess(string name)
-    {
+    public void ShowUnauthorizedAccess(string name) =>
         writer.WriteLine("Access denied {0}!", name);
-    }
 
-    public void ShowUnknownAccount()
-    {
+    public void ShowUnknownAccount() =>
         writer.WriteLine("Sorry, we don't know you.");
-    }
 }
