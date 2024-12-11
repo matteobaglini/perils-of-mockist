@@ -1,53 +1,22 @@
 ﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AccessControl.App
+namespace AccessControl.App;
+
+class Program
 {
-    class Program
+    private static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            var (address, port) = PrepareTcpServer(
-                "23, john, 23-B|47-H",
-                "64, mary, 55-B|31-H|67-A"
-            );
+        var (address, port) = new AccountsTcpServer(
+            "23, John, 23-B|47-H",
+            "64, Mary, 55-B|31-H|67-A"
+        ).Start();
 
-            var repository = new TcpAccountRepository(address, port);
-            var display = new ConsoleDisplay(Console.Out);
-            var service = new AccessControlService(repository, display);
+        var repository = new TcpAccountRepository(address, port);
+        var display = new ConsoleDisplay(Console.Out);
+        var service = new AccessControlService(repository, display);
 
-            service.Check("some-account-id", "some-gate-id");
-        }
-
-        private static (string, int) PrepareTcpServer(params string[] lines)
-        {
-            var address = "127.0.0.1";
-            var port = 13000;
-            Task.Run(() =>
-            {
-                var server = new TcpListener(IPAddress.Parse(address), port);
-                server.Start();
-
-                using (var client = server.AcceptTcpClient())
-                using (var stream = client.GetStream())
-                {
-                    var dataIn = new byte[1024];
-
-                    var bytes = stream.Read(dataIn, 0, dataIn.Length);
-                    var id = Encoding.ASCII.GetString(dataIn, 0, bytes);
-                    var line = lines.FirstOrDefault(x => x.StartsWith(id));
-                    var dataOut = Encoding.ASCII.GetBytes(line ?? string.Empty);
-                    stream.Write(dataOut, 0, dataOut.Length);
-
-                    client.Close();
-                }
-                server.Stop();
-            });
-            return (address, port);
-        }
+        // service.Check("23", "23-B"); // Welcome John!
+        // service.Check("23", "67-A"); // Access denied John!
+        // service.Check("some-account-id", "some-gate-id"); // Sorry, we don't know you.
     }
 }
