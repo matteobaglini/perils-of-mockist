@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace AccessControl.App;
 
@@ -7,18 +6,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        var fileName = "accounts.txt";
-        Touch(fileName);
-
-        var repository = new FlatFileAccountRepository(fileName);
+        var repository = new FlatFileAccountRepository("accounts.txt");
         var display = new ConsoleDisplay(Console.Out);
         var service = new AccessControlService(repository, display);
 
-        service.Check("some-account-id", "some-gate-id");
-    }
-
-    private static void Touch(string fileName)
-    {
-        using var text = File.CreateText(fileName);
+        // service.Check("some-account-id", "some-gate-id"); // Sorry, we don't know you.
+        
+        // service.Check("23", "67-A"); // Access denied John!
+        
+        service.Check("23", "23-B"); // Welcome John!
     }
 }
