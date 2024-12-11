@@ -1,33 +1,33 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
-namespace AccessControl.App
+namespace AccessControl.App;
+
+public class FlatFileAccountRepository : IAccountRepository
 {
-    public class FlatFileAccountRepository : IAccountRepository
+    private readonly string fileName;
+
+    public FlatFileAccountRepository(string fileName) =>
+        this.fileName = fileName;
+
+    public Account Load(string id)
     {
-        private readonly String fileName;
+        if (!File.Exists(fileName))
+            return null;
 
-        public FlatFileAccountRepository(String fileName)
-        {
-            this.fileName = fileName;
-        }
+        var accountFound = File.ReadAllLines(fileName)
+            .Select(Parse)
+            .FirstOrDefault(x => x.Id == id);
 
-        public Account Load(String id)
-        {
-            if (!File.Exists(fileName))
-                return null;
+        if (accountFound == null)
+            throw new UnknownAccountException();
 
-            var all = File.ReadAllLines(fileName);
-            var accounts = all.Select(Parse).ToList();
+        return accountFound;
+    }
 
-            return accounts.FirstOrDefault(x => x.Id == id);
-        }
-        
-        private static Account Parse(string line)
-        {
-            var parts = line.Split(",").Select(x => x.Trim()).ToArray();
-            return new Account(parts[0], parts[1], parts[2].Split("|"));
-        }
+    private static Account Parse(string line)
+    {
+        var parts = line.Split(",").Select(x => x.Trim()).ToArray();
+        return new Account(parts[0], parts[1], parts[2].Split("|"));
     }
 }

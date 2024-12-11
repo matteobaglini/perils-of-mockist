@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace AccessControl.App;
 
-namespace AccessControl.App
+public interface IAccountRepository
 {
-    public interface IAccountRepository
-    {
-        Account Load(String id);
-    }
+    Account Load(string id);
 }
