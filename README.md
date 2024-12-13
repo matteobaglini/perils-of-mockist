@@ -8,7 +8,7 @@ Mocking seems to be a popular choice for doing interaction base testing populari
 
 # Slides
 
-The slides are available for [download](slides.pdf).
+The slides are visible [here](slides.pdf).
 
 # Code
 
